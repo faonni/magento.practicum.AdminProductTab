@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Faonni Group
+ *  
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade module to newer
+ * versions in the future.
+ * 
+ * @package     Faonni_AdminProductTab
+ * @copyright   Copyright (c) 2014 Faonni Group(support@faonni.com) 
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */ 
+-->
+<config>
+	<modules>
+		<Faonni_AdminProductTab>
+			<version>0.1.0</version>
+		</Faonni_AdminProductTab>
+	</modules>
+	<global>
+		<blocks>
+            <faonni_adminproducttab>
+                <class>Faonni_AdminProductTab_Block</class>
+            </faonni_adminproducttab>
+        </blocks>
+		<helpers>
+			<faonni_adminproducttab>
+				<class>Faonni_AdminProductTab_Helper</class>
+			</faonni_adminproducttab>
+		</helpers>
+		<models>
+            <faonni_adminproducttab>
+                <class>Faonni_AdminProductTab_Model</class>
+            </faonni_adminproducttab>
+        </models>		
+	</global>
+	<adminhtml>
+        <layout>
+            <updates>
+                <faonni_adminproducttab>
+                    <file>faonni/adminproducttab.xml</file>
+                </faonni_adminproducttab>
+            </updates>
+        </layout>
+        <events>
+            <catalog_product_prepare_save>
+                <observers>
+                    <faonni_adminproducttab_save_product>
+                        <type>singleton</type>
+                        <class>faonni_adminproducttab/observer</class>
+                        <method>saveProduct</method>
+                    </faonni_adminproducttab_save_product>
+                </observers>
+            </catalog_product_prepare_save>
+        </events>
+    </adminhtml>	
+</config> 
